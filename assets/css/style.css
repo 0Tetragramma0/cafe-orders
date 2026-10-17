@@ -1,0 +1,370 @@
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
+header { background: #FF6B35; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; }
+main { padding: 20px; }
+
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+.login-container input,
+.login-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.login-container button { background: #FF6B35; color: #fff; border: none; cursor: pointer; }
+
+.order-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+.status-in_progress { color: #FFC107; }
+.status-ready { color: #28A745; }
+.status-paid { color: #007BFF; }
+.error { color: #DC3545; margin-bottom: 10px; }
+
+/* Шапка */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FF6B35;
+    color: #fff;
+    padding: 12px 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+.main-header .logo a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-header .main-nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.main-header .main-nav a:hover {
+    text-decoration: underline;
+}
+
+.main-header .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.main-header .btn-logout {
+    background: rgba(255,255,255,.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-header .btn-logout:hover {
+    background: rgba(255,255,255,.35);
+}
+
+/* Основной контент */
+.main-content {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Подвал */
+.main-footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 13px;
+    color: #777;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+
+/* Метрики */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    text-align: center;
+}
+
+.metric-title {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF6B35;
+}
+
+/* Форма-карточка */
+.form-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    margin-bottom: 24px;
+    max-width: 500px;
+}
+
+.form-card label {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.form-card input,
+.form-card select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.form-card button,
+.filter-form button {
+    background: #FF6B35;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.form-card button:hover,
+.filter-form button:hover {
+    background: #e85a2a;
+}
+
+/* Таблицы */
+.data-table {
+    width: 100%;
+    background: #fff;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    margin-bottom: 24px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background: #f8f8f8;
+    font-weight: bold;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Фильтр */
+.filter-form {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    margin-bottom: 24px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Сообщение */
+.message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+/* Стили для формы заказа */
+.dish-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.dish-item {
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.dish-item button {
+    background: #FF6B35;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cart-table {
+    width: 100%;
+    background: #fff;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-table button {
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+.payment-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    max-width: 500px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.payment-form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.payment-form button {
+    background: #FF6B35;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Информация о заказе */
+.order-info {
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    margin-bottom: 20px;
+}
+
+.order-info p {
+    margin: 6px 0;
+}
+
+/* Статусы */
+.status-draft { color: #6c757d; }
+.status-in_progress { color: #FFC107; }
+.status-ready { color: #28A745; }
+.status-paid { color: #007BFF; }
+.status-closed { color: #333; }
+
+/* Кнопки */
+.btn-primary {
+    display: inline-block;
+    background: #FF6B35;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    background: #e85a2a;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-back {
+    display: inline-block;
+    color: #777;
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+.actions {
+    margin-top: 20px;
+}
